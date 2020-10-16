@@ -6,8 +6,6 @@ import time
 class Player:
     def __init__(self,name):
         self.name=name
-        self.hold=False
-        self.roll=True
         self.total_score=0
         
 class ComputerPlayer(Player):
@@ -22,13 +20,9 @@ class ComputerPlayer(Player):
             ans = 25
         
         if temp_score >= ans:
-            self.hold = True
-            self.roll=False
             return('hold')
             
         else:
-            self.hold=False
-            self.roll = True
             return('roll')  
                 
 
@@ -39,14 +33,10 @@ class HumanPlayer(Player):
         ans = ans.lower()
         
         if ans == 'r':
-            self.hold=False
-            self.roll = True
             return('roll')
             
         
         if ans =='h':
-            self.hold = True
-            self.roll=False
             return('hold')
             
         else:
@@ -55,7 +45,7 @@ class HumanPlayer(Player):
 class PlayerFactory:
     
     def comp_or_hum(self,name):
-        if name.lower() == 'computer':
+        if 'computer' in name.lower():
             return ComputerPlayer(name)
         else:
             return HumanPlayer(name)
@@ -115,8 +105,7 @@ class Game():
                 self.go()
                     
     def choice(self):
-        
-        if self.current.name.lower() == 'computer' or self.current.name.lower() == 'computer 1' or self.current.name.lower() == 'computer 2':
+        if 'computer' in self.current.name.lower():
             result = self.current.r_or_h(self.temp_score)
         else:
             result = self.current.r_or_h()
