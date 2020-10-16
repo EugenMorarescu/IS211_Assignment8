@@ -88,13 +88,11 @@ class Game:
         if (roll_score == 1):
             self.temp_score = 0
             print("\n{} rolled a {}, no points for you!\nYour current turn score is {}\nYour total score is {}\n".format(self.current.name,roll_score,self.temp_score,self.current.total_score))
-            input("Press Enter to continue\n")
             self.scores()
                
         else:
             self.temp_score+=roll_score
             print("\n{} rolled a {}\nYour current turn score is {}\nYour total score is {}".format(self.current.name,roll_score,self.temp_score,self.current.total_score))
-            input("Press Enter to continue\n")
             self.choice()
             
             
