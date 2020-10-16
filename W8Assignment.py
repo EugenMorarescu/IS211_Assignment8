@@ -8,7 +8,6 @@ class Player:
         self.name=name
         self.hold=False
         self.roll=True
-        self.turn=False
         self.total_score=0
         
 class ComputerPlayer(Player):
